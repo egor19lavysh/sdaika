@@ -1,0 +1,17 @@
+<form id="offer_form" method="post" enctype="multipart/form-data">
+
+        {% for field in form %}
+
+             {% csrf_token %}
+        
+            <p> {{ field.label_tag }} {{ field }} </p>
+
+        {% endfor %}
+
+        {{ formset.management_form }}
+        {% for form in formset %}
+                {{ form }}
+        {% endfor %}
+
+        <p><button type="submit"> create </button></p>
+</form>
